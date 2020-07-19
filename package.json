@@ -1,0 +1,14 @@
+{
+  "name": "basestar",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/basestar/basestar-js/basestar-js.git"
+  },
+  "files": [
+    "dist/**/*.*"
+  ],
+  "author": "arcneon",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/basestar/basestar-js"
+}
