@@ -1,13 +1,13 @@
 import Property, {PropertyProps} from "./Property";
-import Schema, {SchemaProps} from "./Schema";
+import SchemaImpl, {SchemaImplProps} from "./../src/SchemaImpl";
 
-interface InstanceSchemaProps extends SchemaProps {
+interface InstanceSchemaProps extends SchemaImplProps {
 
     readonly properties? : {[key: string]: PropertyProps};
 
 }
 
-abstract class InstanceSchema extends Schema {
+abstract class InstanceSchema extends SchemaImpl {
 
     public properties? : {[key: string]: Property};
 
@@ -21,7 +21,7 @@ abstract class InstanceSchema extends Schema {
 
     static from(props?: InstanceSchemaProps) : InstanceSchema {
 
-        return Schema.from(props) as InstanceSchema;
+        return SchemaImpl.from(props) as InstanceSchema;
     }
 }
 

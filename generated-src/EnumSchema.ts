@@ -1,12 +1,12 @@
-import Schema, {SchemaProps} from "./Schema";
+import SchemaImpl, {SchemaImplProps} from "./../src/SchemaImpl";
 
-interface EnumSchemaProps extends SchemaProps {
+interface EnumSchemaProps extends SchemaImplProps {
 
     readonly values? : string[];
 
 }
 
-class EnumSchema extends Schema {
+class EnumSchema extends SchemaImpl {
 
     public values? : string[];
 

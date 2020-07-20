@@ -1,7 +1,7 @@
 import Constraint, {ConstraintProps} from "./Constraint";
 import Member, {MemberProps} from "./Member";
 import Visibility, {VisibilityProps} from "./Visibility";
-import Use, {UseProps} from "./use/Use";
+import UseImpl, {UseImplProps} from "./../src/UseImpl";
 
 interface PropertyProps extends MemberProps {
 

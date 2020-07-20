@@ -1,4 +1,5 @@
 import lazyRequire from "./lazyRequire";
+import lazy from "./lazy";
 
 type UseImplProps = any;
 
@@ -19,6 +20,30 @@ const UseString = lazyRequire("../generated-src/use/UseString");
 
 class UseImpl {
 
+    static any = lazy(() => new (UseAny().default)());
+
+    static array = (config: any) => new (UseArray().default)(config);
+
+    static binary = lazy(() => new (UseBinary().default)());
+
+    static boolean = lazy(() => new (UseBoolean().default)());
+
+    static date = lazy(() => new (UseDate().default)());
+
+    static datetime = lazy(() => new (UseDateTime().default)());
+
+    static integer = lazy(() => new (UseInteger().default)());
+
+    static map = (config: any) => new (UseMap().default)(config);
+
+    static named = (config: any) => new (UseMap().default)(config);
+
+    static number = lazy(() => new (UseNumber().default)());
+
+    static set = (config: any) => new (UseSet().default)(config);
+
+    static string = lazy(() => new (UseString().default)());
+
     constructor(_props?: UseImplProps) {
 
     }
@@ -32,48 +57,40 @@ class UseImpl {
         const impl = (name: string, config: any) : UseImpl => {
             switch (name) {
                 case "any": {
-                    return new (UseAny().default)();
+                    return UseImpl.any();
                 }
                 case "array": {
-                    return new (UseArray().default)({
-                        type: config
-                    });
+                    return UseImpl.array({type: config});
                 }
                 case "binary": {
-                    return new (UseBinary().default)();
+                    return UseImpl.binary();
                 }
                 case "boolean": {
-                    return new (UseBoolean().default)();
+                    return UseImpl.boolean();
                 }
                 case "date": {
-                    return new (UseDate().default)();
+                    return UseImpl.date();
                 }
                 case "datetime": {
-                    return new (UseDateTime().default)();
+                    return UseImpl.datetime();
                 }
                 case "integer": {
-                    return new (UseInteger().default)();
+                    return UseImpl.integer();
                 }
                 case "map": {
-                    return new (UseMap().default)({
-                        type: config
-                    });
+                    return UseImpl.map({type: config});
                 }
                 case "named": {
-                    return new (UseNamed().default)({
-                        name: config
-                    });
+                    return UseImpl.named({name: config});
                 }
                 case "number": {
-                    return new (UseNumber().default)();
+                    return UseImpl.number();
                 }
                 case "set": {
-                    return new (UseSet().default)()({
-                        type: config
-                    });
+                    return UseImpl.set({type: config});
                 }
                 case "string": {
-                    return new (UseString().default)();
+                    return UseImpl.string();
                 }
                 default: throw Error("Type " + name + " not implemented");
             }

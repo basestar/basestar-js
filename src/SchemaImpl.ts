@@ -7,9 +7,19 @@ const ObjectSchema = lazyRequire("../generated-src/ObjectSchema");
 const StructSchema = lazyRequire("../generated-src/StructSchema");
 const ViewSchema = lazyRequire("../generated-src/ViewSchema");
 
+declare const createSchema : (props: any) => SchemaImpl;
+
 abstract class SchemaImpl {
 
     readonly type?: string;
+
+    static enum = (props: any) => new (EnumSchema().default)(props);
+
+    static object = (props: any) => new (ObjectSchema().default)(props);
+
+    static struct = (props: any) => new (StructSchema().default)(props);
+
+    static view = (props: any) => new (ViewSchema().default)(props);
 
     protected constructor(props?: SchemaImplProps) {
 

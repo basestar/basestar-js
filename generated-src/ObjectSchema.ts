@@ -5,7 +5,7 @@ import InstanceSchema, {InstanceSchemaProps} from "./InstanceSchema";
 import Link, {LinkProps} from "./Link";
 import Permission, {PermissionProps} from "./Permission";
 import Property, {PropertyProps} from "./Property";
-import Schema, {SchemaProps} from "./Schema";
+import SchemaImpl, {SchemaImplProps} from "./../src/SchemaImpl";
 import Transient, {TransientProps} from "./Transient";
 
 interface ObjectSchemaProps extends InstanceSchemaProps {
