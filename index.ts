@@ -16,8 +16,18 @@ import ViewSchema from "./generated-src/ViewSchema";
 import Visibility from "./generated-src/Visibility";
 import InstanceSchema from "./generated-src/InstanceSchema";
 import Schema from "./generated-src/Schema";
-
-import TypeResolver from "./src/TypeResolver";
+import Use from "./generated-src/use/Use";
+import UseAny from "./generated-src/use/UseAny";
+import UseArray from "./generated-src/use/UseArray";
+import UseBinary from "./generated-src/use/UseBinary";
+import UseDate from "./generated-src/use/UseDate";
+import UseDateTime from "./generated-src/use/UseDateTime";
+import UseInteger from "./generated-src/use/UseInteger";
+import UseMap from "./generated-src/use/UseMap";
+import UseNamed from "./generated-src/use/UseNamed";
+import UseNumber from "./generated-src/use/UseNumber";
+import UseSet from "./generated-src/use/UseSet";
+import UseString from "./generated-src/use/UseString";
 
 export {
     Consistency,
@@ -38,7 +48,17 @@ export {
     Validator,
     ViewSchema,
     Visibility,
-
-    TypeResolver
+    Use,
+    UseAny,
+    UseArray,
+    UseBinary,
+    UseDate,
+    UseDateTime,
+    UseInteger,
+    UseMap,
+    UseNamed,
+    UseNumber,
+    UseSet,
+    UseString
 };
 

@@ -22,6 +22,11 @@ class History  {
             this.enabled = props.enabled;
         }
     }
+
+    static from(props?: HistoryProps) : History {
+
+        return new History(props);
+    }
 }
 
 export {HistoryProps};

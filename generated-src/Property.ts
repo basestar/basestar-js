@@ -33,12 +33,17 @@ class Property extends Member {
 
         super(props);
         if(props) {
-            this.constraints = (props.constraints || []).map(v0 => new Constraint(v0));
+            this.constraints = (props.constraints || []).map(v0 => Constraint.from(v0));
             this.expression = props.expression;
             this.immutable = props.immutable;
             this.required = props.required;
-            this.type = new Use(props.type);
+            this.type = Use.from(props.type);
         }
+    }
+
+    static from(props?: PropertyProps) : Property {
+
+        return new Property(props);
     }
 }
 

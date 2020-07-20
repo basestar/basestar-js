@@ -57,13 +57,18 @@ class ObjectSchema extends InstanceSchema {
             this.concrete = props.concrete;
             this.expand = (props.expand || []).map(v0 => v0);
             this.extend = props.extend;
-            this.history = new History(props.history);
-            this.id = new Id(props.id);
-            this.indexes = Object.fromEntries(Object.entries(props.indexes || {}).map(e0 => [e0[0], new Index(e0[1])]));
-            this.links = Object.fromEntries(Object.entries(props.links || {}).map(e0 => [e0[0], new Link(e0[1])]));
-            this.permissions = Object.fromEntries(Object.entries(props.permissions || {}).map(e0 => [e0[0], new Permission(e0[1])]));
-            this.transients = Object.fromEntries(Object.entries(props.transients || {}).map(e0 => [e0[0], new Transient(e0[1])]));
+            this.history = History.from(props.history);
+            this.id = Id.from(props.id);
+            this.indexes = Object.fromEntries(Object.entries(props.indexes || {}).map(e0 => [e0[0], Index.from(e0[1])]));
+            this.links = Object.fromEntries(Object.entries(props.links || {}).map(e0 => [e0[0], Link.from(e0[1])]));
+            this.permissions = Object.fromEntries(Object.entries(props.permissions || {}).map(e0 => [e0[0], Permission.from(e0[1])]));
+            this.transients = Object.fromEntries(Object.entries(props.transients || {}).map(e0 => [e0[0], Transient.from(e0[1])]));
         }
+    }
+
+    static from(props?: ObjectSchemaProps) : ObjectSchema {
+
+        return new ObjectSchema(props);
     }
 }
 

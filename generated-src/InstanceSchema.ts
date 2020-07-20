@@ -7,16 +7,21 @@ interface InstanceSchemaProps extends SchemaProps {
 
 }
 
-class InstanceSchema extends Schema {
+abstract class InstanceSchema extends Schema {
 
     public properties? : {[key: string]: Property};
 
-    constructor(props?: InstanceSchemaProps) {
+    protected constructor(props?: InstanceSchemaProps) {
 
         super(props);
         if(props) {
-            this.properties = Object.fromEntries(Object.entries(props.properties || {}).map(e0 => [e0[0], new Property(e0[1])]));
+            this.properties = Object.fromEntries(Object.entries(props.properties || {}).map(e0 => [e0[0], Property.from(e0[1])]));
         }
+    }
+
+    static from(props?: InstanceSchemaProps) : InstanceSchema {
+
+        return Schema.from(props) as InstanceSchema;
     }
 }
 

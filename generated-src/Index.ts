@@ -67,6 +67,11 @@ class Index  {
             this.version = props.version;
         }
     }
+
+    static from(props?: IndexProps) : Index {
+
+        return new Index(props);
+    }
 }
 
 export {IndexProps};

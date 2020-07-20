@@ -17,6 +17,11 @@ class UseString extends Use {
             this.pattern = props.pattern;
         }
     }
+
+    static from(props?: UseStringProps) : UseString {
+
+        return new UseString(props);
+    }
 }
 
 export {UseStringProps};

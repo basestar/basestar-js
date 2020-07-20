@@ -43,14 +43,19 @@ class ViewSchema extends InstanceSchema {
 
         super(props);
         if(props) {
-            this.from = new From(props.from);
+            this.from = From.from(props.from);
             this.group = (props.group || []).map(v0 => v0);
-            this.links = Object.fromEntries(Object.entries(props.links || {}).map(e0 => [e0[0], new Link(e0[1])]));
+            this.links = Object.fromEntries(Object.entries(props.links || {}).map(e0 => [e0[0], Link.from(e0[1])]));
             this.materialized = props.materialized;
-            this.permissions = Object.fromEntries(Object.entries(props.permissions || {}).map(e0 => [e0[0], new Permission(e0[1])]));
+            this.permissions = Object.fromEntries(Object.entries(props.permissions || {}).map(e0 => [e0[0], Permission.from(e0[1])]));
             this.sort = (props.sort || []).map(v0 => v0);
             this.where = props.where;
         }
+    }
+
+    static from(props?: ViewSchemaProps) : ViewSchema {
+
+        return new ViewSchema(props);
     }
 }
 

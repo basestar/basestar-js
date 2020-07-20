@@ -21,6 +21,11 @@ class From  {
             this.schema = props.schema;
         }
     }
+
+    static from(props?: FromProps) : From {
+
+        return new From(props);
+    }
 }
 
 export {FromProps};

@@ -12,6 +12,11 @@ class UseNumber extends Use {
         if(props) {
         }
     }
+
+    static from(props?: UseNumberProps) : UseNumber {
+
+        return new UseNumber(props);
+    }
 }
 
 export {UseNumberProps};

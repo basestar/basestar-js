@@ -36,6 +36,11 @@ class Permission  {
             this.inherit = (props.inherit || []).map(v0 => v0);
         }
     }
+
+    static from(props?: PermissionProps) : Permission {
+
+        return new Permission(props);
+    }
 }
 
 export {PermissionProps};

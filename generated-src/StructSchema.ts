@@ -24,6 +24,11 @@ class StructSchema extends InstanceSchema {
             this.extend = props.extend;
         }
     }
+
+    static from(props?: StructSchemaProps) : StructSchema {
+
+        return new StructSchema(props);
+    }
 }
 
 export {StructSchemaProps};

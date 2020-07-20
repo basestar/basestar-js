@@ -19,8 +19,13 @@ class Constraint  {
         
         if(props) {
             this.message = props.message;
-            this.validator = new Validator(props.validator);
+            this.validator = Validator.from(props.validator);
         }
+    }
+
+    static from(props?: ConstraintProps) : Constraint {
+
+        return new Constraint(props);
     }
 }
 

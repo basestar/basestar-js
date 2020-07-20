@@ -33,6 +33,11 @@ class Link extends Member {
             this.sort = (props.sort || []).map(v0 => v0);
         }
     }
+
+    static from(props?: LinkProps) : Link {
+
+        return new Link(props);
+    }
 }
 
 export {LinkProps};

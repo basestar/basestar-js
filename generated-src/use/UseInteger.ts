@@ -12,6 +12,11 @@ class UseInteger extends Use {
         if(props) {
         }
     }
+
+    static from(props?: UseIntegerProps) : UseInteger {
+
+        return new UseInteger(props);
+    }
 }
 
 export {UseIntegerProps};

@@ -14,8 +14,13 @@ class UseSet extends Use {
 
         super(props);
         if(props) {
-            this.type = new Use(props.type);
+            this.type = Use.from(props.type);
         }
+    }
+
+    static from(props?: UseSetProps) : UseSet {
+
+        return new UseSet(props);
     }
 }
 

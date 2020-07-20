@@ -14,8 +14,13 @@ class UseMap extends Use {
 
         super(props);
         if(props) {
-            this.type = new Use(props.type);
+            this.type = Use.from(props.type);
         }
+    }
+
+    static from(props?: UseMapProps) : UseMap {
+
+        return new UseMap(props);
     }
 }
 

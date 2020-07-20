@@ -18,9 +18,14 @@ class Id  {
 
         
         if(props) {
-            this.constraints = (props.constraints || []).map(v0 => new Constraint(v0));
+            this.constraints = (props.constraints || []).map(v0 => Constraint.from(v0));
             this.expression = props.expression;
         }
+    }
+
+    static from(props?: IdProps) : Id {
+
+        return new Id(props);
     }
 }
 

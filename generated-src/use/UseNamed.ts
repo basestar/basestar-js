@@ -17,6 +17,11 @@ class UseNamed extends Use {
             this.name = props.name;
         }
     }
+
+    static from(props?: UseNamedProps) : UseNamed {
+
+        return new UseNamed(props);
+    }
 }
 
 export {UseNamedProps};

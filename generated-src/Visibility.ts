@@ -11,6 +11,11 @@ class Visibility  {
         if(props) {
         }
     }
+
+    static from(props?: VisibilityProps) : Visibility {
+
+        return new Visibility(props);
+    }
 }
 
 export {VisibilityProps};

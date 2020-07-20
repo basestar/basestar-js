@@ -26,8 +26,13 @@ class Transient extends Member {
         if(props) {
             this.expand = (props.expand || []).map(v0 => v0);
             this.expression = props.expression;
-            this.type = new Use(props.type);
+            this.type = Use.from(props.type);
         }
+    }
+
+    static from(props?: TransientProps) : Transient {
+
+        return new Transient(props);
     }
 }
 

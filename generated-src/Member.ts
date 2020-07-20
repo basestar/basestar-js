@@ -10,7 +10,7 @@ interface MemberProps  {
 
 }
 
-class Member  {
+abstract class Member  {
 
     public description? : string;
 
@@ -18,13 +18,13 @@ class Member  {
 
     public visibility? : Visibility;
 
-    constructor(props?: MemberProps) {
+    protected constructor(props?: MemberProps) {
 
         
         if(props) {
             this.description = props.description;
             this.extensions = Object.fromEntries(Object.entries(props.extensions || {}).map(e0 => [e0[0], e0[1]]));
-            this.visibility = new Visibility(props.visibility);
+            this.visibility = Visibility.from(props.visibility);
         }
     }
 }

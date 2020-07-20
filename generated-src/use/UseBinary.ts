@@ -12,6 +12,11 @@ class UseBinary extends Use {
         if(props) {
         }
     }
+
+    static from(props?: UseBinaryProps) : UseBinary {
+
+        return new UseBinary(props);
+    }
 }
 
 export {UseBinaryProps};

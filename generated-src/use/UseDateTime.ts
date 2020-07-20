@@ -12,6 +12,11 @@ class UseDateTime extends Use {
         if(props) {
         }
     }
+
+    static from(props?: UseDateTimeProps) : UseDateTime {
+
+        return new UseDateTime(props);
+    }
 }
 
 export {UseDateTimeProps};

@@ -12,6 +12,11 @@ class UseAny extends Use {
         if(props) {
         }
     }
+
+    static from(props?: UseAnyProps) : UseAny {
+
+        return new UseAny(props);
+    }
 }
 
 export {UseAnyProps};

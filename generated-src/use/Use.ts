@@ -1,15 +1,21 @@
+import UseImpl, {UseImplProps} from "./../../src/UseImpl";
 
-interface UseProps  {
+interface UseProps extends UseImplProps {
 
 }
 
-class Use  {
+abstract class Use extends UseImpl {
 
-    constructor(props?: UseProps) {
+    protected constructor(props?: UseProps) {
 
-        
+        super(props);
         if(props) {
         }
+    }
+
+    static from(props?: UseProps) : Use {
+
+        return UseImpl.from(props) as Use;
     }
 }
 

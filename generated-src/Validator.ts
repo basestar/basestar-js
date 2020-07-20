@@ -11,6 +11,11 @@ class Validator  {
         if(props) {
         }
     }
+
+    static from(props?: ValidatorProps) : Validator {
+
+        return new Validator(props);
+    }
 }
 
 export {ValidatorProps};

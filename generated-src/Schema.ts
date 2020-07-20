@@ -1,5 +1,6 @@
+import SchemaImpl, {SchemaImplProps} from "./../src/SchemaImpl";
 
-interface SchemaProps  {
+interface SchemaProps extends SchemaImplProps {
 
     readonly description? : string;
 
@@ -9,7 +10,7 @@ interface SchemaProps  {
 
 }
 
-class Schema  {
+abstract class Schema extends SchemaImpl {
 
     public description? : string;
 
@@ -17,14 +18,19 @@ class Schema  {
 
     public version? : number;
 
-    constructor(props?: SchemaProps) {
+    protected constructor(props?: SchemaProps) {
 
-        
+        super(props);
         if(props) {
             this.description = props.description;
             this.extensions = Object.fromEntries(Object.entries(props.extensions || {}).map(e0 => [e0[0], e0[1]]));
             this.version = props.version;
         }
+    }
+
+    static from(props?: SchemaProps) : Schema {
+
+        return SchemaImpl.from(props) as Schema;
     }
 }
 

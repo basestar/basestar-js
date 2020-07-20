@@ -12,6 +12,11 @@ class UseDate extends Use {
         if(props) {
         }
     }
+
+    static from(props?: UseDateProps) : UseDate {
+
+        return new UseDate(props);
+    }
 }
 
 export {UseDateProps};

@@ -1,35 +1,28 @@
+import InstanceSchema, {InstanceSchemaProps} from "./InstanceSchema";
+import Property, {PropertyProps} from "./Property";
+import Schema, {SchemaProps} from "./Schema";
 
-interface EnumSchemaProps  {
-
-    readonly description? : string;
-
-    readonly extensions? : {[key: string]: any};
+interface EnumSchemaProps extends InstanceSchemaProps {
 
     readonly values? : string[];
 
-    readonly version? : number;
-
 }
 
-class EnumSchema  {
-
-    public description? : string;
-
-    public extensions? : {[key: string]: any};
+class EnumSchema extends InstanceSchema {
 
     public values? : string[];
 
-    public version? : number;
-
     constructor(props?: EnumSchemaProps) {
 
-        
+        super(props);
         if(props) {
-            this.description = props.description;
-            this.extensions = Object.fromEntries(Object.entries(props.extensions || {}).map(e0 => [e0[0], e0[1]]));
             this.values = (props.values || []).map(v0 => v0);
-            this.version = props.version;
         }
+    }
+
+    static from(props?: EnumSchemaProps) : EnumSchema {
+
+        return new EnumSchema(props);
     }
 }
 
