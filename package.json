@@ -5,9 +5,16 @@
     "type": "git",
     "url": "https://github.com/basestar/basestar-js/basestar-js.git"
   },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
   "files": [
     "dist/**/*.*"
   ],
+  "devDependencies": {
+    "typescript": "~3.8.3"
+  },
   "author": "arcneon",
   "license": "Apache-2.0",
   "homepage": "https://github.com/basestar/basestar-js"
