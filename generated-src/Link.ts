@@ -1,5 +1,4 @@
 import Member, {MemberProps} from "./Member";
-import Visibility, {VisibilityProps} from "./../src/Visibility";
 
 interface LinkProps extends MemberProps {
 

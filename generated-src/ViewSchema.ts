@@ -2,8 +2,6 @@ import From, {FromProps} from "./From";
 import InstanceSchema, {InstanceSchemaProps} from "./InstanceSchema";
 import Link, {LinkProps} from "./Link";
 import Permission, {PermissionProps} from "./Permission";
-import Property, {PropertyProps} from "./Property";
-import Schema, {SchemaProps} from "./../src/Schema";
 
 interface ViewSchemaProps extends InstanceSchemaProps {
 
