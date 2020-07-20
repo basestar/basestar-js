@@ -13,7 +13,7 @@ class From  {
 
     public schema? : string;
 
-    constructor(props?: FromProps) {
+    constructor(props: FromProps) {
 
         
         if(props) {
@@ -22,7 +22,7 @@ class From  {
         }
     }
 
-    static from(props?: FromProps) : From {
+    static from(props: FromProps) : From {
 
         return new From(props);
     }

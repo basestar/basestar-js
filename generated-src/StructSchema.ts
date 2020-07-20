@@ -1,6 +1,6 @@
 import InstanceSchema, {InstanceSchemaProps} from "./InstanceSchema";
 import Property, {PropertyProps} from "./Property";
-import Schema, {SchemaProps} from "./Schema";
+import Schema, {SchemaProps} from "./../src/Schema";
 
 interface StructSchemaProps extends InstanceSchemaProps {
 
@@ -16,7 +16,7 @@ class StructSchema extends InstanceSchema {
 
     public extend? : string;
 
-    constructor(props?: StructSchemaProps) {
+    constructor(props: StructSchemaProps) {
 
         super(props);
         if(props) {
@@ -25,7 +25,7 @@ class StructSchema extends InstanceSchema {
         }
     }
 
-    static from(props?: StructSchemaProps) : StructSchema {
+    static from(props: StructSchemaProps) : StructSchema {
 
         return new StructSchema(props);
     }

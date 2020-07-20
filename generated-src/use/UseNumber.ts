@@ -1,4 +1,4 @@
-import Use, {UseProps} from "./Use";
+import Use, {UseProps} from "./../../src/Use";
 
 interface UseNumberProps extends UseProps {
 
@@ -6,14 +6,14 @@ interface UseNumberProps extends UseProps {
 
 class UseNumber extends Use {
 
-    constructor(props?: UseNumberProps) {
+    constructor(props: UseNumberProps) {
 
         super(props);
         if(props) {
         }
     }
 
-    static from(props?: UseNumberProps) : UseNumber {
+    static from(props: UseNumberProps) : UseNumber {
 
         return new UseNumber(props);
     }

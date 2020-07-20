@@ -1,5 +1,5 @@
 import Member, {MemberProps} from "./Member";
-import Visibility, {VisibilityProps} from "./Visibility";
+import Visibility, {VisibilityProps} from "./../src/Visibility";
 
 interface LinkProps extends MemberProps {
 
@@ -23,7 +23,7 @@ class Link extends Member {
 
     public sort? : string[];
 
-    constructor(props?: LinkProps) {
+    constructor(props: LinkProps) {
 
         super(props);
         if(props) {
@@ -34,7 +34,7 @@ class Link extends Member {
         }
     }
 
-    static from(props?: LinkProps) : Link {
+    static from(props: LinkProps) : Link {
 
         return new Link(props);
     }

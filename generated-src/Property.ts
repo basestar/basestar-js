@@ -1,7 +1,7 @@
-import Constraint, {ConstraintProps} from "./Constraint";
+import Constraint, {ConstraintProps} from "./../src/Constraint";
 import Member, {MemberProps} from "./Member";
-import Visibility, {VisibilityProps} from "./Visibility";
-import UseImpl, {UseImplProps} from "./../src/UseImpl";
+import Visibility, {VisibilityProps} from "./../src/Visibility";
+import Use, {UseProps} from "./../src/Use";
 
 interface PropertyProps extends MemberProps {
 
@@ -29,19 +29,19 @@ class Property extends Member {
 
     public type? : Use;
 
-    constructor(props?: PropertyProps) {
+    constructor(props: PropertyProps) {
 
         super(props);
         if(props) {
-            this.constraints = (props.constraints || []).map(v0 => Constraint.from(v0));
+            this.constraints = (props.constraints || []).map(v0 => v0 && Constraint.from(v0));
             this.expression = props.expression;
             this.immutable = props.immutable;
             this.required = props.required;
-            this.type = Use.from(props.type);
+            this.type = props.type && Use.from(props.type);
         }
     }
 
-    static from(props?: PropertyProps) : Property {
+    static from(props: PropertyProps) : Property {
 
         return new Property(props);
     }

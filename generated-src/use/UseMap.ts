@@ -1,4 +1,4 @@
-import Use, {UseProps} from "./Use";
+import Use, {UseProps} from "./../../src/Use";
 
 interface UseMapProps extends UseProps {
 
@@ -10,15 +10,15 @@ class UseMap extends Use {
 
     public type? : Use;
 
-    constructor(props?: UseMapProps) {
+    constructor(props: UseMapProps) {
 
         super(props);
         if(props) {
-            this.type = Use.from(props.type);
+            this.type = props.type && Use.from(props.type);
         }
     }
 
-    static from(props?: UseMapProps) : UseMap {
+    static from(props: UseMapProps) : UseMap {
 
         return new UseMap(props);
     }

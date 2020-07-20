@@ -5,14 +5,14 @@ interface ValidatorProps  {
 
 class Validator  {
 
-    constructor(props?: ValidatorProps) {
+    constructor(props: ValidatorProps) {
 
         
         if(props) {
         }
     }
 
-    static from(props?: ValidatorProps) : Validator {
+    static from(props: ValidatorProps) : Validator {
 
         return new Validator(props);
     }

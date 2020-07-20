@@ -25,7 +25,7 @@ class Permission  {
 
     public inherit? : string[];
 
-    constructor(props?: PermissionProps) {
+    constructor(props: PermissionProps) {
 
         
         if(props) {
@@ -37,7 +37,7 @@ class Permission  {
         }
     }
 
-    static from(props?: PermissionProps) : Permission {
+    static from(props: PermissionProps) : Permission {
 
         return new Permission(props);
     }

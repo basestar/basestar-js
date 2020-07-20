@@ -1,16 +1,16 @@
-import SchemaImpl, {SchemaImplProps} from "./../src/SchemaImpl";
+import Schema, {SchemaProps} from "./../src/Schema";
 
-interface EnumSchemaProps extends SchemaImplProps {
+interface EnumSchemaProps extends SchemaProps {
 
     readonly values? : string[];
 
 }
 
-class EnumSchema extends SchemaImpl {
+class EnumSchema extends Schema {
 
     public values? : string[];
 
-    constructor(props?: EnumSchemaProps) {
+    constructor(props: EnumSchemaProps) {
 
         super(props);
         if(props) {
@@ -18,7 +18,7 @@ class EnumSchema extends SchemaImpl {
         }
     }
 
-    static from(props?: EnumSchemaProps) : EnumSchema {
+    static from(props: EnumSchemaProps) : EnumSchema {
 
         return new EnumSchema(props);
     }

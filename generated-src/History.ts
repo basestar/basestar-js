@@ -14,7 +14,7 @@ class History  {
 
     public enabled? : boolean;
 
-    constructor(props?: HistoryProps) {
+    constructor(props: HistoryProps) {
 
         
         if(props) {
@@ -23,7 +23,7 @@ class History  {
         }
     }
 
-    static from(props?: HistoryProps) : History {
+    static from(props: HistoryProps) : History {
 
         return new History(props);
     }

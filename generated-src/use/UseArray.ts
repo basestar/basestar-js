@@ -1,4 +1,4 @@
-import Use, {UseProps} from "./Use";
+import Use, {UseProps} from "./../../src/Use";
 
 interface UseArrayProps extends UseProps {
 
@@ -10,15 +10,15 @@ class UseArray extends Use {
 
     public type? : Use;
 
-    constructor(props?: UseArrayProps) {
+    constructor(props: UseArrayProps) {
 
         super(props);
         if(props) {
-            this.type = Use.from(props.type);
+            this.type = props.type && Use.from(props.type);
         }
     }
 
-    static from(props?: UseArrayProps) : UseArray {
+    static from(props: UseArrayProps) : UseArray {
 
         return new UseArray(props);
     }

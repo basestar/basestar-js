@@ -50,7 +50,7 @@ class Index  {
 
     public version? : number;
 
-    constructor(props?: IndexProps) {
+    constructor(props: IndexProps) {
 
         
         if(props) {
@@ -68,7 +68,7 @@ class Index  {
         }
     }
 
-    static from(props?: IndexProps) : Index {
+    static from(props: IndexProps) : Index {
 
         return new Index(props);
     }

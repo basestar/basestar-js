@@ -1,6 +1,6 @@
 import Member, {MemberProps} from "./Member";
-import Visibility, {VisibilityProps} from "./Visibility";
-import Use, {UseProps} from "./use/Use";
+import Visibility, {VisibilityProps} from "./../src/Visibility";
+import Use, {UseProps} from "./../src/Use";
 
 interface TransientProps extends MemberProps {
 
@@ -20,17 +20,17 @@ class Transient extends Member {
 
     public type? : Use;
 
-    constructor(props?: TransientProps) {
+    constructor(props: TransientProps) {
 
         super(props);
         if(props) {
             this.expand = (props.expand || []).map(v0 => v0);
             this.expression = props.expression;
-            this.type = Use.from(props.type);
+            this.type = props.type && Use.from(props.type);
         }
     }
 
-    static from(props?: TransientProps) : Transient {
+    static from(props: TransientProps) : Transient {
 
         return new Transient(props);
     }

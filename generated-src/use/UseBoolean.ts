@@ -1,4 +1,4 @@
-import Use, {UseProps} from "./Use";
+import Use, {UseProps} from "./../../src/Use";
 
 interface UseBooleanProps extends UseProps {
 
@@ -6,14 +6,14 @@ interface UseBooleanProps extends UseProps {
 
 class UseBoolean extends Use {
 
-    constructor(props?: UseBooleanProps) {
+    constructor(props: UseBooleanProps) {
 
         super(props);
         if(props) {
         }
     }
 
-    static from(props?: UseBooleanProps) : UseBoolean {
+    static from(props: UseBooleanProps) : UseBoolean {
 
         return new UseBoolean(props);
     }

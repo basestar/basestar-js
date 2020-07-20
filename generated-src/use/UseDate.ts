@@ -1,4 +1,4 @@
-import Use, {UseProps} from "./Use";
+import Use, {UseProps} from "./../../src/Use";
 
 interface UseDateProps extends UseProps {
 
@@ -6,14 +6,14 @@ interface UseDateProps extends UseProps {
 
 class UseDate extends Use {
 
-    constructor(props?: UseDateProps) {
+    constructor(props: UseDateProps) {
 
         super(props);
         if(props) {
         }
     }
 
-    static from(props?: UseDateProps) : UseDate {
+    static from(props: UseDateProps) : UseDate {
 
         return new UseDate(props);
     }

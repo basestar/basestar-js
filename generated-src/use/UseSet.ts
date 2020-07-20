@@ -1,4 +1,4 @@
-import Use, {UseProps} from "./Use";
+import Use, {UseProps} from "./../../src/Use";
 
 interface UseSetProps extends UseProps {
 
@@ -10,15 +10,15 @@ class UseSet extends Use {
 
     public type? : Use;
 
-    constructor(props?: UseSetProps) {
+    constructor(props: UseSetProps) {
 
         super(props);
         if(props) {
-            this.type = Use.from(props.type);
+            this.type = props.type && Use.from(props.type);
         }
     }
 
-    static from(props?: UseSetProps) : UseSet {
+    static from(props: UseSetProps) : UseSet {
 
         return new UseSet(props);
     }

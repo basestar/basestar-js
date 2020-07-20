@@ -1,27 +1,27 @@
 import Property, {PropertyProps} from "./Property";
-import SchemaImpl, {SchemaImplProps} from "./../src/SchemaImpl";
+import Schema, {SchemaProps} from "./../src/Schema";
 
-interface InstanceSchemaProps extends SchemaImplProps {
+interface InstanceSchemaProps extends SchemaProps {
 
     readonly properties? : {[key: string]: PropertyProps};
 
 }
 
-abstract class InstanceSchema extends SchemaImpl {
+abstract class InstanceSchema extends Schema {
 
     public properties? : {[key: string]: Property};
 
-    protected constructor(props?: InstanceSchemaProps) {
+    protected constructor(props: InstanceSchemaProps) {
 
         super(props);
         if(props) {
-            this.properties = Object.fromEntries(Object.entries(props.properties || {}).map(e0 => [e0[0], Property.from(e0[1])]));
+            this.properties = Object.fromEntries(Object.entries(props.properties || {}).map(e0 => [e0[0], e0[1] && Property.from(e0[1])]));
         }
     }
 
-    static from(props?: InstanceSchemaProps) : InstanceSchema {
+    static from(props: InstanceSchemaProps) : InstanceSchema {
 
-        return SchemaImpl.from(props) as InstanceSchema;
+        return Schema.from(props) as InstanceSchema;
     }
 }
 

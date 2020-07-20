@@ -1,4 +1,4 @@
-import Use, {UseProps} from "./Use";
+import Use, {UseProps} from "./../../src/Use";
 
 interface UseStringProps extends UseProps {
 
@@ -10,7 +10,7 @@ class UseString extends Use {
 
     public pattern? : string;
 
-    constructor(props?: UseStringProps) {
+    constructor(props: UseStringProps) {
 
         super(props);
         if(props) {
@@ -18,7 +18,7 @@ class UseString extends Use {
         }
     }
 
-    static from(props?: UseStringProps) : UseString {
+    static from(props: UseStringProps) : UseString {
 
         return new UseString(props);
     }

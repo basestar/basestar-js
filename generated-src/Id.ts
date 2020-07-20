@@ -1,4 +1,4 @@
-import Constraint, {ConstraintProps} from "./Constraint";
+import Constraint, {ConstraintProps} from "./../src/Constraint";
 
 interface IdProps  {
 
@@ -14,16 +14,16 @@ class Id  {
 
     public expression? : string;
 
-    constructor(props?: IdProps) {
+    constructor(props: IdProps) {
 
         
         if(props) {
-            this.constraints = (props.constraints || []).map(v0 => Constraint.from(v0));
+            this.constraints = (props.constraints || []).map(v0 => v0 && Constraint.from(v0));
             this.expression = props.expression;
         }
     }
 
-    static from(props?: IdProps) : Id {
+    static from(props: IdProps) : Id {
 
         return new Id(props);
     }

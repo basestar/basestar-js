@@ -1,4 +1,4 @@
-import Visibility, {VisibilityProps} from "./Visibility";
+import Visibility, {VisibilityProps} from "./../src/Visibility";
 
 interface MemberProps  {
 
@@ -18,13 +18,13 @@ abstract class Member  {
 
     public visibility? : Visibility;
 
-    protected constructor(props?: MemberProps) {
+    protected constructor(props: MemberProps) {
 
         
         if(props) {
             this.description = props.description;
             this.extensions = Object.fromEntries(Object.entries(props.extensions || {}).map(e0 => [e0[0], e0[1]]));
-            this.visibility = Visibility.from(props.visibility);
+            this.visibility = props.visibility && Visibility.from(props.visibility);
         }
     }
 }

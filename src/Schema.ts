@@ -1,15 +1,18 @@
-import lazyRequire from "./lazyRequire";
+import BaseSchema, { SchemaProps as BaseSchemaProps } from "../generated-src/Schema";
 
-type SchemaImplProps = any;
+import lazyRequire from "./lazyRequire";
 
 const EnumSchema = lazyRequire("../generated-src/EnumSchema");
 const ObjectSchema = lazyRequire("../generated-src/ObjectSchema");
 const StructSchema = lazyRequire("../generated-src/StructSchema");
 const ViewSchema = lazyRequire("../generated-src/ViewSchema");
 
-declare const createSchema : (props: any) => SchemaImpl;
+interface SchemaProps extends BaseSchemaProps {
 
-abstract class SchemaImpl {
+    readonly type?: string;
+}
+
+abstract class Schema extends BaseSchema {
 
     readonly type?: string;
 
@@ -21,12 +24,12 @@ abstract class SchemaImpl {
 
     static view = (props: any) => new (ViewSchema().default)(props);
 
-    protected constructor(props?: SchemaImplProps) {
+    protected constructor(props: SchemaProps) {
 
-        this.type = props?.type;
+        super(props);
     }
 
-    static from(props?: SchemaImplProps) : SchemaImpl {
+    static from(props: any) : Schema {
 
         if(!props) {
             throw new Error("Props must be provided");
@@ -51,5 +54,5 @@ abstract class SchemaImpl {
     }
 }
 
-export {SchemaImplProps};
-export default SchemaImpl;
+export {SchemaProps};
+export default Schema;

@@ -1,7 +1,7 @@
 import lazyRequire from "./lazyRequire";
 import lazy from "./lazy";
 
-type UseImplProps = any;
+type UseProps = any;
 
 // Need to do this to break an irreducible import cycle
 
@@ -18,7 +18,7 @@ const UseNumber = lazyRequire("../generated-src/use/UseNumber");
 const UseSet = lazyRequire("../generated-src/use/UseSet");
 const UseString = lazyRequire("../generated-src/use/UseString");
 
-class UseImpl {
+abstract class Use {
 
     static any = lazy(() => new (UseAny().default)());
 
@@ -36,7 +36,7 @@ class UseImpl {
 
     static map = (config: any) => new (UseMap().default)(config);
 
-    static named = (config: any) => new (UseMap().default)(config);
+    static named = (config: any) => new (UseNamed().default)(config);
 
     static number = lazy(() => new (UseNumber().default)());
 
@@ -44,53 +44,53 @@ class UseImpl {
 
     static string = lazy(() => new (UseString().default)());
 
-    constructor(_props?: UseImplProps) {
+    protected constructor(_props?: UseProps) {
 
     }
 
-    static from(props?: UseImplProps) : UseImpl {
+    static from(props?: UseProps) : Use {
 
         if(!props) {
             throw new Error("Props must be provided");
         }
 
-        const impl = (name: string, config: any) : UseImpl => {
+        const impl = (name: string, config: any) : Use => {
             switch (name) {
                 case "any": {
-                    return UseImpl.any();
+                    return Use.any();
                 }
                 case "array": {
-                    return UseImpl.array({type: config});
+                    return Use.array({type: config});
                 }
                 case "binary": {
-                    return UseImpl.binary();
+                    return Use.binary();
                 }
                 case "boolean": {
-                    return UseImpl.boolean();
+                    return Use.boolean();
                 }
                 case "date": {
-                    return UseImpl.date();
+                    return Use.date();
                 }
                 case "datetime": {
-                    return UseImpl.datetime();
+                    return Use.datetime();
                 }
                 case "integer": {
-                    return UseImpl.integer();
+                    return Use.integer();
                 }
                 case "map": {
-                    return UseImpl.map({type: config});
+                    return Use.map({type: config});
                 }
                 case "named": {
-                    return UseImpl.named({name: config});
+                    return Use.named({name: config});
                 }
                 case "number": {
-                    return UseImpl.number();
+                    return Use.number();
                 }
                 case "set": {
-                    return UseImpl.set({type: config});
+                    return Use.set({type: config});
                 }
                 case "string": {
-                    return UseImpl.string();
+                    return Use.string();
                 }
                 default: throw Error("Type " + name + " not implemented");
             }
@@ -110,5 +110,5 @@ class UseImpl {
     }
 }
 
-export {UseImplProps};
-export default UseImpl;
+export {UseProps};
+export default Use;
