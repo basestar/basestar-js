@@ -1,6 +1,9 @@
 import BaseSchema, { SchemaProps as BaseSchemaProps } from "../generated-src/Schema";
 
-import lazyRequire from "./lazyRequire";
+import lazy from "./util/lazy";
+const lazyRequire = (id : string) => lazy(() => require(id));
+
+// Need to do this to break an irreducible import cycle
 
 const EnumSchema = lazyRequire("../generated-src/EnumSchema");
 const ObjectSchema = lazyRequire("../generated-src/ObjectSchema");
@@ -37,16 +40,16 @@ abstract class Schema extends BaseSchema {
         const {type} = props;
         switch (type) {
             case "enum": {
-                return new (EnumSchema().default)(props);
+                return Schema.enum(props);
             }
             case "object": {
-                return new (ObjectSchema().default)(props);
+                return Schema.object(props);
             }
             case "struct": {
-                return new (StructSchema().default)(props);
+                return Schema.struct(props);
             }
             case "view": {
-                return new (ViewSchema().default)(props);
+                return Schema.view(props);
             }
             default:
                 throw new Error("Schema type " + type + " not implemented");

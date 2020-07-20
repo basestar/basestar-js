@@ -1,5 +1,6 @@
-import lazyRequire from "./lazyRequire";
-import lazy from "./lazy";
+
+import lazy from "./util/lazy";
+const lazyRequire = (id : string) => lazy(() => require(id));
 
 type UseProps = any;
 
