@@ -1,5 +1,21 @@
+import lazyRequire from "./lazyRequire";
 
 type UseImplProps = any;
+
+// Need to do this to break an irreducible import cycle
+
+const UseAny = lazyRequire("../generated-src/use/UseAny");
+const UseArray = lazyRequire("../generated-src/use/UseArray");
+const UseBinary = lazyRequire("../generated-src/use/UseBinary");
+const UseBoolean = lazyRequire("../generated-src/use/UseBoolean");
+const UseDate = lazyRequire("../generated-src/use/UseDate");
+const UseDateTime = lazyRequire("../generated-src/use/UseDateTime");
+const UseInteger = lazyRequire("../generated-src/use/UseInteger");
+const UseMap = lazyRequire("../generated-src/use/UseMap");
+const UseNamed = lazyRequire("../generated-src/use/UseNamed");
+const UseNumber = lazyRequire("../generated-src/use/UseNumber");
+const UseSet = lazyRequire("../generated-src/use/UseSet");
+const UseString = lazyRequire("../generated-src/use/UseString");
 
 class UseImpl {
 
@@ -16,56 +32,48 @@ class UseImpl {
         const impl = (name: string, config: any) : UseImpl => {
             switch (name) {
                 case "any": {
-                    const UseAny = require("../generated-src/use/UseAny").default;
-                    return new UseAny();
+                    return new (UseAny().default)();
                 }
                 case "array": {
-                    const UseArray = require("../generated-src/use/UseArray").default;
-                    return new UseArray({
+                    return new (UseArray().default)({
                         type: config
                     });
                 }
                 case "binary": {
-                    const UseBinary = require("../generated-src/use/UseBinary").default;
-                    return new UseBinary();
+                    return new (UseBinary().default)();
+                }
+                case "boolean": {
+                    return new (UseBoolean().default)();
                 }
                 case "date": {
-                    const UseDate = require("../generated-src/use/UseDate").default;
-                    return new UseDate();
+                    return new (UseDate().default)();
                 }
                 case "datetime": {
-                    const UseDateTime = require("../generated-src/use/UseDateTime").default;
-                    return new UseDateTime();
+                    return new (UseDateTime().default)();
                 }
                 case "integer": {
-                    const UseInteger = require("../generated-src/use/UseInteger").default;
-                    return new UseInteger();
+                    return new (UseInteger().default)();
                 }
                 case "map": {
-                    const UseMap = require("../generated-src/use/UseMap").default;
-                    return new UseMap({
+                    return new (UseMap().default)({
                         type: config
                     });
                 }
                 case "named": {
-                    const UseNamed = require("../generated-src/use/UseNamed").default;
-                    return new UseNamed({
+                    return new (UseNamed().default)({
                         name: config
                     });
                 }
                 case "number": {
-                    const UseNumber = require("../generated-src/use/UseNumber").default;
-                    return new UseNumber();
+                    return new (UseNumber().default)();
                 }
                 case "set": {
-                    const UseSet = require("../generated-src/use/UseSet").default;
-                    return new UseSet({
+                    return new (UseSet().default)()({
                         type: config
                     });
                 }
                 case "string": {
-                    const UseString = require("../generated-src/use/UseString").default;
-                    return new UseString();
+                    return new (UseString().default)();
                 }
                 default: throw Error("Type " + name + " not implemented");
             }

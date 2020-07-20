@@ -1,6 +1,6 @@
 import Consistency from "./generated-src/Consistency";
 import Constraint from "./generated-src/Constraint";
-import EnumSchema from "./generated-src/Constraint";
+import EnumSchema from "./generated-src/EnumSchema";
 import From from "./generated-src/From";
 import History from "./generated-src/History";
 import Id from "./generated-src/Id";
@@ -20,6 +20,7 @@ import Use from "./generated-src/use/Use";
 import UseAny from "./generated-src/use/UseAny";
 import UseArray from "./generated-src/use/UseArray";
 import UseBinary from "./generated-src/use/UseBinary";
+import UseBoolean from "./generated-src/use/UseBoolean";
 import UseDate from "./generated-src/use/UseDate";
 import UseDateTime from "./generated-src/use/UseDateTime";
 import UseInteger from "./generated-src/use/UseInteger";
@@ -52,6 +53,7 @@ export {
     UseAny,
     UseArray,
     UseBinary,
+    UseBoolean,
     UseDate,
     UseDateTime,
     UseInteger,

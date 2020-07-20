@@ -1,4 +1,11 @@
+import lazyRequire from "./lazyRequire";
+
 type SchemaImplProps = any;
+
+const EnumSchema = lazyRequire("../generated-src/EnumSchema");
+const ObjectSchema = lazyRequire("../generated-src/ObjectSchema");
+const StructSchema = lazyRequire("../generated-src/StructSchema");
+const ViewSchema = lazyRequire("../generated-src/ViewSchema");
 
 abstract class SchemaImpl {
 
@@ -17,20 +24,16 @@ abstract class SchemaImpl {
         const {type} = props;
         switch (type) {
             case "enum": {
-                const EnumSchema = require("../generated-src/EnumSchema");
-                return new (EnumSchema.default)(props);
+                return new (EnumSchema().default)(props);
             }
             case "object": {
-                const ObjectSchema = require("../generated-src/ObjectSchema");
-                return new (ObjectSchema.default)(props);
+                return new (ObjectSchema().default)(props);
             }
             case "struct": {
-                const StructSchema = require("../generated-src/StructSchema");
-                return new (StructSchema.default)(props);
+                return new (StructSchema().default)(props);
             }
             case "view": {
-                const ViewSchema = require("../generated-src/ViewSchema");
-                return new (ViewSchema.default)(props);
+                return new (ViewSchema().default)(props);
             }
             default:
                 throw new Error("Schema type " + type + " not implemented");

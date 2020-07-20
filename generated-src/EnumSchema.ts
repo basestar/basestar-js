@@ -1,14 +1,12 @@
-import InstanceSchema, {InstanceSchemaProps} from "./InstanceSchema";
-import Property, {PropertyProps} from "./Property";
 import Schema, {SchemaProps} from "./Schema";
 
-interface EnumSchemaProps extends InstanceSchemaProps {
+interface EnumSchemaProps extends SchemaProps {
 
     readonly values? : string[];
 
 }
 
-class EnumSchema extends InstanceSchema {
+class EnumSchema extends Schema {
 
     public values? : string[];
 
