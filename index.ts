@@ -4,7 +4,7 @@ import EnumSchema, { EnumSchemaProps } from "./generated-src/EnumSchema";
 import From, { FromProps } from "./generated-src/From";
 import History, { HistoryProps } from "./generated-src/History";
 import Id, { IdProps } from "./generated-src/Id";
-import Index, { IndexProps } from "./generated-src";
+import Index, { IndexProps } from "./generated-src/Index";
 import Link, { LinkProps } from "./generated-src/Link";
 import ObjectSchema, { ObjectSchemaProps } from "./generated-src/ObjectSchema";
 import Permission, { PermissionProps } from "./generated-src/Permission";
