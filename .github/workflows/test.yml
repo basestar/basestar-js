@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install
         run: npm install
+      - name: Ls
+        run: ls -la
       - name: Build
         run: npm run build
       - name: Test
