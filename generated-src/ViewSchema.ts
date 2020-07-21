@@ -45,9 +45,9 @@ class ViewSchema extends InstanceSchema {
         if(props) {
             this.from = (props?.from != null) ? From.from(props.from) : undefined;
             this.group = (props?.group != null) ? (props.group || []).map(v0 => v0) : undefined;
-            this.links = (props?.links != null) ? Object.fromEntries(Object.entries(props.links || {}).map(e0 => [e0[0], Link.from(e0[1])])) : undefined;
+            this.links = (props?.links != null) ? Object.entries(props.links || {}).map(e0 => ({[e0[0]]: Link.from(e0[1])})).reduce((a0, b0) => ({...a0, ...b0}), {}) : undefined;
             this.materialized = (props?.materialized != null) ? props.materialized : undefined;
-            this.permissions = (props?.permissions != null) ? Object.fromEntries(Object.entries(props.permissions || {}).map(e0 => [e0[0], Permission.from(e0[1])])) : undefined;
+            this.permissions = (props?.permissions != null) ? Object.entries(props.permissions || {}).map(e0 => ({[e0[0]]: Permission.from(e0[1])})).reduce((a0, b0) => ({...a0, ...b0}), {}) : undefined;
             this.sort = (props?.sort != null) ? (props.sort || []).map(v0 => v0) : undefined;
             this.where = (props?.where != null) ? props.where : undefined;
         }

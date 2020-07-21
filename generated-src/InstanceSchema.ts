@@ -15,7 +15,7 @@ abstract class InstanceSchema extends Schema {
 
         super(props);
         if(props) {
-            this.properties = (props?.properties != null) ? Object.fromEntries(Object.entries(props.properties || {}).map(e0 => [e0[0], Property.from(e0[1])])) : undefined;
+            this.properties = (props?.properties != null) ? Object.entries(props.properties || {}).map(e0 => ({[e0[0]]: Property.from(e0[1])})).reduce((a0, b0) => ({...a0, ...b0}), {}) : undefined;
         }
     }
 

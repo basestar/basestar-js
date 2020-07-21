@@ -59,10 +59,10 @@ class ObjectSchema extends InstanceSchema {
             this.extend = (props?.extend != null) ? props.extend : undefined;
             this.history = (props?.history != null) ? History.from(props.history) : undefined;
             this.id = (props?.id != null) ? Id.from(props.id) : undefined;
-            this.indexes = (props?.indexes != null) ? Object.fromEntries(Object.entries(props.indexes || {}).map(e0 => [e0[0], Index.from(e0[1])])) : undefined;
-            this.links = (props?.links != null) ? Object.fromEntries(Object.entries(props.links || {}).map(e0 => [e0[0], Link.from(e0[1])])) : undefined;
-            this.permissions = (props?.permissions != null) ? Object.fromEntries(Object.entries(props.permissions || {}).map(e0 => [e0[0], Permission.from(e0[1])])) : undefined;
-            this.transients = (props?.transients != null) ? Object.fromEntries(Object.entries(props.transients || {}).map(e0 => [e0[0], Transient.from(e0[1])])) : undefined;
+            this.indexes = (props?.indexes != null) ? Object.entries(props.indexes || {}).map(e0 => ({[e0[0]]: Index.from(e0[1])})).reduce((a0, b0) => ({...a0, ...b0}), {}) : undefined;
+            this.links = (props?.links != null) ? Object.entries(props.links || {}).map(e0 => ({[e0[0]]: Link.from(e0[1])})).reduce((a0, b0) => ({...a0, ...b0}), {}) : undefined;
+            this.permissions = (props?.permissions != null) ? Object.entries(props.permissions || {}).map(e0 => ({[e0[0]]: Permission.from(e0[1])})).reduce((a0, b0) => ({...a0, ...b0}), {}) : undefined;
+            this.transients = (props?.transients != null) ? Object.entries(props.transients || {}).map(e0 => ({[e0[0]]: Transient.from(e0[1])})).reduce((a0, b0) => ({...a0, ...b0}), {}) : undefined;
         }
     }
 
