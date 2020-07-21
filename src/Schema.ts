@@ -42,14 +42,16 @@ abstract class Schema extends BaseSchema {
             case "enum": {
                 return Schema.enum(props);
             }
-            case "object": {
-                return Schema.object(props);
-            }
             case "struct": {
                 return Schema.struct(props);
             }
             case "view": {
                 return Schema.view(props);
+            }
+            case null:
+            case undefined:
+            case "object": {
+                return Schema.object(props);
             }
             default:
                 throw new Error("Schema type " + type + " not implemented");

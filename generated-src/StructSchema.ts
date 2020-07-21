@@ -1,4 +1,6 @@
 import InstanceSchema, {InstanceSchemaProps} from "./InstanceSchema";
+import Property, {PropertyProps} from "./Property";
+import Schema, {SchemaProps} from "./../src/Schema";
 
 interface StructSchemaProps extends InstanceSchemaProps {
 

@@ -3,7 +3,6 @@ const basestar = require("../dist/index");
 test('create object Schema', () => {
 
     const schema = basestar.Schema.from({
-        type: "object",
         properties: {
             name: {
                 type: "string"
@@ -12,15 +11,20 @@ test('create object Schema', () => {
                 type: {
                     array: "string"
                 }
+            },
+            named: {
+                type: "Named"
             }
         }
     });
 
     expect(schema instanceof basestar.ObjectSchema).toBeTruthy();
-    expect(Object.keys(schema.properties).length).toBe(2);
+    expect(Object.keys(schema.properties).length).toBe(3);
     expect(schema.properties.name.type instanceof basestar.UseString).toBeTruthy();
     expect(schema.properties.names.type instanceof basestar.UseArray).toBeTruthy();
     expect(schema.properties.names.type.type instanceof basestar.UseString).toBeTruthy();
+    expect(schema.properties.named.type instanceof basestar.UseNamed).toBeTruthy();
+    expect(schema.properties.named.type.name).toBe("Named");
 });
 
 

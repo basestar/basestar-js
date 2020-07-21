@@ -55,7 +55,10 @@ abstract class Use {
             throw new Error("Props must be provided");
         }
 
-        const impl = (name: string, config: any) : Use => {
+        const type = (name: string, config?: any) : Use => {
+            if(!name) {
+                throw Error("Missing type name");
+            }
             switch (name) {
                 case "any": {
                     return Use.any();
@@ -81,9 +84,6 @@ abstract class Use {
                 case "map": {
                     return Use.map({type: config});
                 }
-                case "named": {
-                    return Use.named({name: config});
-                }
                 case "number": {
                     return Use.number();
                 }
@@ -93,17 +93,19 @@ abstract class Use {
                 case "string": {
                     return Use.string();
                 }
-                default: throw Error("Type " + name + " not implemented");
+                default: {
+                    return Use.named({name});
+                }
             }
         };
 
         if(typeof props === "string") {
-            return impl(props, {})
+            return type(props, {})
         } else {
             const names = Object.getOwnPropertyNames(props);
             if(names.length === 1) {
                 const name = names[0];
-                return impl(name, props[name]);
+                return type(name, props[name]);
             } else {
                 throw Error("Type expression should have one key");
             }
