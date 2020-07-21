@@ -11,9 +11,14 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v1
+        name: Setup Node.js
+        with:
+          node-version: 12.x
       - uses: actions/checkout@v1
-      - name: Run Tests
-        run: |
-          npm install
-          npm run build
-          npm run test
+      - name: Install
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Test
+        run: npm run test
