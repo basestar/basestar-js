@@ -33,11 +33,11 @@ class Property extends Member {
 
         super(props);
         if(props) {
-            this.constraints = (props.constraints || []).map(v0 => v0 && Constraint.from(v0));
-            this.expression = props.expression;
-            this.immutable = props.immutable;
-            this.required = props.required;
-            this.type = props.type && Use.from(props.type);
+            this.constraints = (props?.constraints != null) ? (props.constraints || []).map(v0 => Constraint.from(v0)) : undefined;
+            this.expression = (props?.expression != null) ? props.expression : undefined;
+            this.immutable = (props?.immutable != null) ? props.immutable : undefined;
+            this.required = (props?.required != null) ? props.required : undefined;
+            this.type = (props?.type != null) ? Use.from(props.type) : undefined;
         }
     }
 

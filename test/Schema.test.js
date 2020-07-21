@@ -5,15 +5,18 @@ test('create object Schema', () => {
     const schema = basestar.Schema.from({
         properties: {
             name: {
-                type: "string"
+                type: "string",
+                visibility: false
             },
             names: {
                 type: {
                     array: "string"
-                }
+                },
+                visibility: true
             },
             named: {
-                type: "Named"
+                type: "Named",
+                visibility: "x != y"
             }
         }
     });
@@ -21,10 +24,14 @@ test('create object Schema', () => {
     expect(schema instanceof basestar.ObjectSchema).toBeTruthy();
     expect(Object.keys(schema.properties).length).toBe(3);
     expect(schema.properties.name.type instanceof basestar.UseString).toBeTruthy();
+    expect(schema.properties.name.visibility.isAlwaysHidden()).toBeTruthy();
     expect(schema.properties.names.type instanceof basestar.UseArray).toBeTruthy();
     expect(schema.properties.names.type.type instanceof basestar.UseString).toBeTruthy();
+    expect(schema.properties.names.visibility.isAlwaysVisible()).toBeTruthy();
     expect(schema.properties.named.type instanceof basestar.UseNamed).toBeTruthy();
     expect(schema.properties.named.type.name).toBe("Named");
+    expect(schema.properties.named.visibility.isAlwaysHidden()).toBeFalsy();
+    expect(schema.properties.named.visibility.isAlwaysVisible()).toBeFalsy();
 });
 
 
@@ -77,9 +84,7 @@ test('create namespace', () => {
     const namespace = JSON.parse(schema);
 
     Object.entries(namespace).forEach(entry => {
-        const name = entry[0];
         const config = entry[1];
-        const schema = basestar.Schema.from(config);
-        console.log(schema);
+        basestar.Schema.from(config);
     });
 })

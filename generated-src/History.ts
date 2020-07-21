@@ -18,8 +18,8 @@ class History  {
 
         
         if(props) {
-            this.consistency = props.consistency;
-            this.enabled = props.enabled;
+            this.consistency = (props?.consistency != null) ? props.consistency : undefined;
+            this.enabled = (props?.enabled != null) ? props.enabled : undefined;
         }
     }
 

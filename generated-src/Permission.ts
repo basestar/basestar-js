@@ -29,11 +29,11 @@ class Permission  {
 
         
         if(props) {
-            this.anonymous = props.anonymous;
-            this.description = props.description;
-            this.expand = (props.expand || []).map(v0 => v0);
-            this.expression = props.expression;
-            this.inherit = (props.inherit || []).map(v0 => v0);
+            this.anonymous = (props?.anonymous != null) ? props.anonymous : undefined;
+            this.description = (props?.description != null) ? props.description : undefined;
+            this.expand = (props?.expand != null) ? (props.expand || []).map(v0 => v0) : undefined;
+            this.expression = (props?.expression != null) ? props.expression : undefined;
+            this.inherit = (props?.inherit != null) ? (props.inherit || []).map(v0 => v0) : undefined;
         }
     }
 

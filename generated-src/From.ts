@@ -17,8 +17,8 @@ class From  {
 
         
         if(props) {
-            this.expand = (props.expand || []).map(v0 => v0);
-            this.schema = props.schema;
+            this.expand = (props?.expand != null) ? (props.expand || []).map(v0 => v0) : undefined;
+            this.schema = (props?.schema != null) ? props.schema : undefined;
         }
     }
 

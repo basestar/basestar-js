@@ -14,7 +14,7 @@ class UseMap extends Use {
 
         super(props);
         if(props) {
-            this.type = props.type && Use.from(props.type);
+            this.type = (props?.type != null) ? Use.from(props.type) : undefined;
         }
     }
 

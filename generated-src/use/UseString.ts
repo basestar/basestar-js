@@ -14,7 +14,7 @@ class UseString extends Use {
 
         super(props);
         if(props) {
-            this.pattern = props.pattern;
+            this.pattern = (props?.pattern != null) ? props.pattern : undefined;
         }
     }
 

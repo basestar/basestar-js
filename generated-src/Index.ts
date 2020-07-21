@@ -54,17 +54,17 @@ class Index  {
 
         
         if(props) {
-            this.consistency = props.consistency;
-            this.description = props.description;
-            this.extensions = Object.fromEntries(Object.entries(props.extensions || {}).map(e0 => [e0[0], e0[1]]));
-            this.max = props.max;
-            this.over = Object.fromEntries(Object.entries(props.over || {}).map(e0 => [e0[0], e0[1]]));
-            this.partition = (props.partition || []).map(v0 => v0);
-            this.projection = (props.projection || []).map(v0 => v0);
-            this.sort = (props.sort || []).map(v0 => v0);
-            this.sparse = props.sparse;
-            this.unique = props.unique;
-            this.version = props.version;
+            this.consistency = (props?.consistency != null) ? props.consistency : undefined;
+            this.description = (props?.description != null) ? props.description : undefined;
+            this.extensions = (props?.extensions != null) ? Object.fromEntries(Object.entries(props.extensions || {}).map(e0 => [e0[0], e0[1]])) : undefined;
+            this.max = (props?.max != null) ? props.max : undefined;
+            this.over = (props?.over != null) ? Object.fromEntries(Object.entries(props.over || {}).map(e0 => [e0[0], e0[1]])) : undefined;
+            this.partition = (props?.partition != null) ? (props.partition || []).map(v0 => v0) : undefined;
+            this.projection = (props?.projection != null) ? (props.projection || []).map(v0 => v0) : undefined;
+            this.sort = (props?.sort != null) ? (props.sort || []).map(v0 => v0) : undefined;
+            this.sparse = (props?.sparse != null) ? props.sparse : undefined;
+            this.unique = (props?.unique != null) ? props.unique : undefined;
+            this.version = (props?.version != null) ? props.version : undefined;
         }
     }
 

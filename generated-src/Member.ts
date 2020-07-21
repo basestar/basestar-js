@@ -22,9 +22,9 @@ abstract class Member  {
 
         
         if(props) {
-            this.description = props.description;
-            this.extensions = Object.fromEntries(Object.entries(props.extensions || {}).map(e0 => [e0[0], e0[1]]));
-            this.visibility = props.visibility && Visibility.from(props.visibility);
+            this.description = (props?.description != null) ? props.description : undefined;
+            this.extensions = (props?.extensions != null) ? Object.fromEntries(Object.entries(props.extensions || {}).map(e0 => [e0[0], e0[1]])) : undefined;
+            this.visibility = (props?.visibility != null) ? Visibility.from(props.visibility) : undefined;
         }
     }
 }

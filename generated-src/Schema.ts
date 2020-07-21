@@ -21,9 +21,9 @@ abstract class Schema  {
 
         
         if(props) {
-            this.description = props.description;
-            this.extensions = Object.fromEntries(Object.entries(props.extensions || {}).map(e0 => [e0[0], e0[1]]));
-            this.version = props.version;
+            this.description = (props?.description != null) ? props.description : undefined;
+            this.extensions = (props?.extensions != null) ? Object.fromEntries(Object.entries(props.extensions || {}).map(e0 => [e0[0], e0[1]])) : undefined;
+            this.version = (props?.version != null) ? props.version : undefined;
         }
     }
 }

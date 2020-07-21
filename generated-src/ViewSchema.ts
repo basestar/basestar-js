@@ -43,13 +43,13 @@ class ViewSchema extends InstanceSchema {
 
         super(props);
         if(props) {
-            this.from = props.from && From.from(props.from);
-            this.group = (props.group || []).map(v0 => v0);
-            this.links = Object.fromEntries(Object.entries(props.links || {}).map(e0 => [e0[0], e0[1] && Link.from(e0[1])]));
-            this.materialized = props.materialized;
-            this.permissions = Object.fromEntries(Object.entries(props.permissions || {}).map(e0 => [e0[0], e0[1] && Permission.from(e0[1])]));
-            this.sort = (props.sort || []).map(v0 => v0);
-            this.where = props.where;
+            this.from = (props?.from != null) ? From.from(props.from) : undefined;
+            this.group = (props?.group != null) ? (props.group || []).map(v0 => v0) : undefined;
+            this.links = (props?.links != null) ? Object.fromEntries(Object.entries(props.links || {}).map(e0 => [e0[0], Link.from(e0[1])])) : undefined;
+            this.materialized = (props?.materialized != null) ? props.materialized : undefined;
+            this.permissions = (props?.permissions != null) ? Object.fromEntries(Object.entries(props.permissions || {}).map(e0 => [e0[0], Permission.from(e0[1])])) : undefined;
+            this.sort = (props?.sort != null) ? (props.sort || []).map(v0 => v0) : undefined;
+            this.where = (props?.where != null) ? props.where : undefined;
         }
     }
 

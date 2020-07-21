@@ -14,7 +14,7 @@ class EnumSchema extends Schema {
 
         super(props);
         if(props) {
-            this.values = (props.values || []).map(v0 => v0);
+            this.values = (props?.values != null) ? (props.values || []).map(v0 => v0) : undefined;
         }
     }
 

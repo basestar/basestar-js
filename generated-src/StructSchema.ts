@@ -20,8 +20,8 @@ class StructSchema extends InstanceSchema {
 
         super(props);
         if(props) {
-            this.concrete = props.concrete;
-            this.extend = props.extend;
+            this.concrete = (props?.concrete != null) ? props.concrete : undefined;
+            this.extend = (props?.extend != null) ? props.extend : undefined;
         }
     }
 

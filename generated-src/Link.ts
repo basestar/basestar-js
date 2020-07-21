@@ -27,10 +27,10 @@ class Link extends Member {
 
         super(props);
         if(props) {
-            this.expression = props.expression;
-            this.schema = props.schema;
-            this.single = props.single;
-            this.sort = (props.sort || []).map(v0 => v0);
+            this.expression = (props?.expression != null) ? props.expression : undefined;
+            this.schema = (props?.schema != null) ? props.schema : undefined;
+            this.single = (props?.single != null) ? props.single : undefined;
+            this.sort = (props?.sort != null) ? (props.sort || []).map(v0 => v0) : undefined;
         }
     }
 

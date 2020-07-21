@@ -14,7 +14,7 @@ class UseNamed extends Use {
 
         super(props);
         if(props) {
-            this.name = props.name;
+            this.name = (props?.name != null) ? props.name : undefined;
         }
     }
 

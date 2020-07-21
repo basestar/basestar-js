@@ -18,8 +18,8 @@ class Id  {
 
         
         if(props) {
-            this.constraints = (props.constraints || []).map(v0 => v0 && Constraint.from(v0));
-            this.expression = props.expression;
+            this.constraints = (props?.constraints != null) ? (props.constraints || []).map(v0 => Constraint.from(v0)) : undefined;
+            this.expression = (props?.expression != null) ? props.expression : undefined;
         }
     }
 
